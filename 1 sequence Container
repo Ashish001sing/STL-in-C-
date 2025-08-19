@@ -1,0 +1,90 @@
+ #include <vector>
+#include <deque>
+#include <list>
+#include <forward_list>
+
+ 1. vector — Dynamic Array
+- Use Case: Fast random access, dynamic resizing, ideal for arrays, graphs, DSA problems.               
+- Time Complexity                                                                                      |
+
+- Access: O(1)
+- Insert at end: Amortized O(1)
+- Insert/delete in middle: O(n)
+
+
+vector<int> v = {1, 2, 3};
+v.push_back(4);
+v.pop_back();
+sort(v.begin(), v.end());
+
+
+
+   2   deque — Double-Ended Queue
+- Use Case: Efficient insert/remove from both ends. Great for sliding window problems.
+- Time Complexity:
+- Access: O(1)
+- Insert/delete at ends: O(1)
+deque<int> dq = {10, 20};
+dq.push_front(5);
+dq.push_back(30);
+dq.pop_front();
+dq.pop_back();
+//code
+deque<int> dq = {10, 20};
+dq.push_front(5);
+dq.push_back(30);
+dq.pop_front();
+dq.pop_back();
+
+ 
+ 3   — Doubly Linked List
+- Use Case: Frequent insert/delete in middle. Useful for LRU cache, undo stacks.
+- Time Complexity:
+- Access: O(n)
+- Insert/delete: O(1) with iterator
+list<int> lst = {1, 2, 3};
+auto it = lst.begin();
+advance(it, 1);
+lst.insert(it, 10);
+lst.remove(2); 
+
+//code
+list<int> lst = {1, 2, 3};
+auto it = lst.begin();
+advance(it, 1);
+lst.insert(it, 10);
+lst.remove(2);
+
+
+
+
+
+4 Singly Linked List
+- Use Case: Lightweight memory footprint. Useful in embedded systems or low-level tools.
+- Time Complexity:
+- Access: O(n)
+- Insert/delete: O(1) with iterator
+forward_list<int> fl = {1, 2, 3};
+fl.push_front(0);
+fl.remove(2);
+
+ code 
+ forward_list<int> fl = {1, 2, 3};
+fl.push_front(0);
+fl.remove(2);
+
+
+
+
+
+
+
+
+
+
+
+
+  
+   
+       
+         
