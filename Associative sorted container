@@ -1,0 +1,90 @@
+Perfect for:
+- Competitive programming (ordered maps, frequency tracking)
+- Systems-level design (routing tables, config stores)
+- Recruiter visibility (clean STL usage, modularity)
+
+
+
+
+
+
+
+
+1. set — Unique Sorted Elements
+- Use Case: Fast lookup, duplicate removal, ordered storage
+- Time Complexity: O(log n) for insert, erase, find
+#include <set>
+set<int> s;
+s.insert(5);
+s.insert(3);
+s.insert(5); // ignored (no duplicates)
+
+for (int x : s) cout << x << " "; // Output: 3 5
+
+auto it = s.find(3);
+if (it != s.end()) s.erase(it);
+
+
+
+2. multiset — Sorted Elements with Duplicates
+- Use Case: Frequency tracking, histogram bins
+- Time Complexity: O(log n)
+#include <set>
+multiset<int> ms;
+ms.insert(5);
+ms.insert(3);
+ms.insert(5); // allowed
+
+for (int x : ms) cout << x << " "; // Output: 3 5 5
+
+ms.erase(ms.find(5)); // removes one occurrence
+
+
+3. map — Key-Value Pairs (Sorted by Key)
+- Use Case: Config settings, routing tables, frequency maps
+- Time Complexity: O(log n)
+#include <map>
+map<string, int> m;
+m["apple"] = 3;
+m["banana"] = 5;
+
+for (auto& [key, val] : m)
+    cout << key << ": " << val << "\n"; // apple: 3, banana: 5
+
+if (m.count("apple")) m.erase("apple");
+
+
+4. multimap — Multiple Values per Key (Sorted)
+- Use Case: Indexing multiple entries per key (e.g. tags, logs)
+- Time Complexity: O(log n)
+#include <map>
+multimap<string, int> mm;
+mm.insert({"apple", 3});
+mm.insert({"apple", 5});
+mm.insert({"banana", 2});
+
+for (auto& [key, val] : mm)
+    cout << key << ": " << val << "\n"; // apple: 3, apple: 5, banana: 2
+
+auto range = mm.equal_range("apple");
+for (auto it = range.first; it != range.second; ++it)
+    cout << it->second << " "; // Output: 3 5
+
+
+
+
+ Tips for Competitive Use
+- Use lower_bound() and upper_bound() for range queries.
+- Prefer map over unordered_map when order matters or for predictable iteration.
+- Use multiset for problems like sliding window median or k-th largest.
+
+
+
+
+
+
+
+
+
+
+
